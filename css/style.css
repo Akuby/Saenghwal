@@ -1,3 +1,4 @@
+
 #active {
   background-color: yellow;
 }
@@ -21,10 +22,10 @@ h1 {
 }
 
 article{
-  padding: 0 10px;
+  padding: 0 15px;
 }
 
-ol{
+.menu{
   border-right: 2px solid black;
   margin: 0;
   padding-top: 15px;
@@ -34,4 +35,18 @@ p>img{
 }
 img{
   margin: 10px 0;
+}
+
+@media screen and (max-width: 767px) {
+  section{
+    display: block;
+    border: none;
+  }
+  .menu{
+    border: none;
+    border-bottom: 2px solid black;
+    padding: 10px 30px;
+    text-align: center;
+    list-style-type: none;
+  }
 }
