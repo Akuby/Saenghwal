@@ -1,5 +1,5 @@
 #active {
-  background-color: yellow;
+  text-decoration: underline;
 }
 header {
   display: flex;
@@ -48,14 +48,18 @@ img{
 }
 
 @media screen and (max-width: 767px) {
+
+  body {
+    size: auto;
+  }
+
   section{
     display: block;
-    border: none;
+    border: 2px solid black;
   }
   .menu{
     border: none;
     border-bottom: 2px solid black;
-    border-top: 2px solid gray;
     padding: 30px;
     padding-bottom: 10px;
     padding-top: 10px;
