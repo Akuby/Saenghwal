@@ -1,10 +1,20 @@
-
 #active {
   background-color: yellow;
 }
-  
+header {
+  display: flex;
+  flex-direction: column;
+}
+
+#dn {
+  width: 50px;
+  background-color: rgb(10, 10, 10);
+  color: white;
+  margin: 10px auto;
+}
+
 section {
-  border: 1px solid black;
+  border: 2px solid black;
   display: grid;
   grid-template-columns: 150px 1fr;
 }
@@ -45,8 +55,16 @@ img{
   .menu{
     border: none;
     border-bottom: 2px solid black;
-    padding: 10px 30px;
+    border-top: 2px solid gray;
+    padding: 30px;
+    padding-bottom: 10px;
+    padding-top: 10px;
     text-align: center;
     list-style-type: none;
+  }
+
+  #dn {
+    width: 55px;
+    margin: 10px auto;
   }
 }
