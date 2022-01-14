@@ -8,8 +8,8 @@ header {
 
 #dn {
   width: 50px;
-  background-color: rgb(10, 10, 10);
-  color: white;
+  background-color: white;
+  color: black;
   margin: 10px auto;
 }
 
