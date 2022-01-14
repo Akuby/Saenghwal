@@ -7,8 +7,10 @@ var Title = {
 var Menu = {
   setColor : function (color,a_color) {
   var alist = document.querySelectorAll('a');
-  for(var i = 1; i < alist.length; i++){
-    alist[i].style.color = color; }
+  var i = 0;
+  while(i < alist.length){
+    alist[i].style.color = color;
+    i += 1; }
   if (document.getElementById('active')){
     document.querySelector('#active').style.color = a_color;
     }
@@ -39,10 +41,10 @@ var Button = {
 
 var Border = {
   setColor : function (color) {
-    document.querySelector('section').style.border = color;
-  document.querySelector('ol').style.borderRight = color;
-  document.querySelector('ol').style.borderBottom = color;
-  document.querySelector('h1').style.borderBottom = color;
+  document.querySelector('section').style.borderColor = color;
+  document.querySelector('ol').style.borderRightColor = color;
+  document.querySelector('ol').style.borderBottomColor = color;
+  document.querySelector('h1').style.borderBottomColor = color;
   }
 }
 
@@ -55,7 +57,7 @@ function day_night_change(self) {
     Body.setBackgroundColor('white');
     Button.setColor('black'); 
     Button.setBackgroundColor('white'); 
-    Border.setColor('2px solid black'); 
+    Border.setColor('black'); 
     self.value = 'day';
   }
   else { //야간
@@ -63,10 +65,10 @@ function day_night_change(self) {
     Menu.setColor('white','#ffffab');
     Body.setTitleColor('#abe3ff');
     Body.setColor('white');
-    Body.setBackgroundColor('black');
+    Body.setBackgroundColor('#262626');
     Button.setColor('white');
     Button.setBackgroundColor('black');
-    Border.setColor('2px solid white');
+    Border.setColor('white');
     self.value = 'night';
   }
 }
