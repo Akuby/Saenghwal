@@ -8,42 +8,49 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header>
-    <h1>
-      <a href="index.html" id="title">WEB</a>
-    </h1>
-    <input type="button" value="day" id="dn" onclick="day_night_change(this)">
-  </header>
-  <section>
-    <ol class="menu">
-      <li><a onclick="fetchPage('HTML')">HTML</a></li>
-      <li><a onclick="fetchPage('CASS')">CSS</a></li>
-      <li><a onclick="fetchPage('JAVASCRIPT')">JavaScript</a></li>
-    </ol>
-    <article>
-      <h2>WEB</h2>
-      <p>The World Wide Web (abbreviated WWW or the Web) is an information
-        space where documents and other web resources are identified by 
-        Uniform Resource Locators (URLs), interlinked by hypertext links, 
-        and can be accessed via the Internet.[1] English scientist Tim 
-        Berners-Lee invented the World Wide Web in 1989. He wrote the 
-        first web browser computer program in 1990 while employed at CERN 
-        in Switzerland.[2][3] The Web browser was released outside of 
-        CERN in 1991, first to other research institutions starting in 
-        January 1991 and to the general public on the Internet in August 
-        1991</p>
-    </article>
-  </section>
-<script>
-  function fetchPage(name){
-    fetch(name).then(function(response){
-            response.text().then(function(text){
-              document.querySelector('article').innerHTML = text;
-            })
-          });
+    <header>
+      <h1>
+        <a href="index.html" id="title">WEB</a>
+      </h1>
+      <input type="button" value="day" id="dn" onclick="day_night_change(this)">
+    </header>
+    <section>
+      <ol class="menu">
+        <li><a href="#!HTML" onclick="fetchPage('HTML')">HTML</a></li>
+        <li><a href="#!CASS" onclick="fetchPage('CASS')">CSS</a></li>
+        <li><a href="#!JAVASCRIPT" onclick="fetchPage('JAVASCRIPT')">JavaScript</a></li>
+      </ol>
+      <article>
+        <h2>WEB</h2>
+        <p>The World Wide Web (abbreviated WWW or the Web) is an information
+          space where documents and other web resources are identified by 
+          Uniform Resource Locators (URLs), interlinked by hypertext links, 
+          and can be accessed via the Internet.[1] English scientist Tim 
+          Berners-Lee invented the World Wide Web in 1989. He wrote the 
+          first web browser computer program in 1990 while employed at CERN 
+          in Switzerland.[2][3] The Web browser was released outside of 
+          CERN in 1991, first to other research institutions starting in 
+          January 1991 and to the general public on the Internet in August 
+          1991</p>
+      </article>
+    </section>
+    <script>
+      function fetchPage(name){
+        fetch(name).then(function(response){
+          response.text().then(function(text){
+            document.querySelector('article').innerHTML = text;
+          })
+        }); }
+        if(window.location.hash){
+          fetchPage(location.hash.substr(2));
+        } else {
+          fetchPage('index.html');
         }
-</script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script type="text/javascript" src="js/colors.js"></script>
+      // ajax는 페이지 내용을 백엔드에서 동적으로 가져오기 때문에
+      // 웹페이지 자체를 다운로드 받는 검색엔진에 영향을 줄 수 없다는 맹점이 있다.
+      // 그래서 #!은 잘 쓰지 않는다. 2018년도엔 pjax를 쓴다고 한다...
+    </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script type="text/javascript" src="js/colors.js"></script>
 </body>
 </html>

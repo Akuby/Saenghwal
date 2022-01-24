@@ -1,3 +1,5 @@
+
+      
 var Title = {
   setColor : function (color) {
     $('#title').css('color', color);
