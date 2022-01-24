@@ -16,9 +16,9 @@
   </header>
   <section>
     <ol class="menu">
-      <li><a href="1.html">HTML</a></li>
-      <li><a href="2.html">CSS</a></li>
-      <li><a href="3.html">JavaScript</a></li>
+      <li><a onclick="fetchPage('HTML')">HTML</a></li>
+      <li><a onclick="fetchPage('CASS')">CSS</a></li>
+      <li><a onclick="fetchPage('JAVASCRIPT')">JavaScript</a></li>
     </ol>
     <article>
       <h2>WEB</h2>
@@ -34,7 +34,15 @@
         1991</p>
     </article>
   </section>
-
+<script>
+  function fetchPage(name){
+    fetch(name).then(function(response){
+            response.text().then(function(text){
+              document.querySelector('article').innerHTML = text;
+            })
+          });
+        }
+</script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript" src="js/colors.js"></script>
 </body>
