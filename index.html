@@ -16,9 +16,6 @@
     </header>
     <section>
       <ol class="menu">
-        <li><a href="#!HTML" onclick="fetchPage('HTML')">HTML</a></li>
-        <li><a href="#!CASS" onclick="fetchPage('CASS')">CSS</a></li>
-        <li><a href="#!JAVASCRIPT" onclick="fetchPage('JAVASCRIPT')">JavaScript</a></li>
       </ol>
       <article>
         <h2>WEB</h2>
@@ -43,12 +40,17 @@
         }); }
         if(window.location.hash){
           fetchPage(location.hash.substr(2));
-        } else {
-          fetchPage('index.html');
         }
-      // ajax는 페이지 내용을 백엔드에서 동적으로 가져오기 때문에
-      // 웹페이지 자체를 다운로드 받는 검색엔진에 영향을 줄 수 없다는 맹점이 있다.
-      // 그래서 #!은 잘 쓰지 않는다. 2018년도엔 pjax를 쓴다고 한다...
+        fetch('list').then(function(response){
+          response.text().then(function(text){
+            let items = text.split(',');
+            const m = document.querySelector('.menu')
+            for(let i = 0; i<items.length;i++){
+              let a = "<li><a href=\"#!" + items[i] + "\" onclick=\"fetchPage(\'" + items[i] + "\')\">" + items[i] + "</a></li>"
+              m.innerHTML += a;
+            }
+          })
+        });
     </script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script type="text/javascript" src="js/colors.js"></script>
