@@ -12,7 +12,11 @@ const app = http.createServer(function (request, response) {
   // console.log(`queryData : ${queryData.get('id')}`);
   // console.log(`_url : ${_url}`)
   let template = '';
-  function content (title) {template = `<!doctype html>
+
+  //./
+  function content(title) {
+    response.writeHead(200);
+    template = `<!doctype html>
   <html>
   <head>
     <title>${title}</title>
@@ -24,29 +28,16 @@ const app = http.createServer(function (request, response) {
       <li><a href="/?id=HTML">HTML</a></li>
       <li><a href="/?id=CSS">CSS</a></li>
       <li><a href="/?id=JavaScript">JavaScript</a></li>
-    </ol>`};
+    </ol>`
+  };
 
   if (_url == '/') {
-    title = 'Welcome!';
-    response.writeHead(200);
-    content(title);
+    content('Welcome!');
     response.end(template);
   } else {
-    response.writeHead(200);
     fs.readFile(`data/${title}`, 'utf-8', function (err, description) {
-      template = `<!doctype html>
-      <html>
-      <head>
-        <title>WEB1 - ${title}</title>
-        <meta charset="utf-8">
-      </head>
-      <body>
-        <h1><a href="/">WEB</a></h1>
-        <ol>
-          <li><a href="/?id=HTML">HTML</a></li>
-          <li><a href="/?id=CSS">CSS</a></li>
-          <li><a href="/?id=JavaScript">JavaScript</a></li>
-        </ol>
+      content(title)
+      template += `
         <h2>${title}</h2>
         <p>${description}</p>
       </body>
